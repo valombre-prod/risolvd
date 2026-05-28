@@ -3,9 +3,14 @@ export default async function handler(req, res) {
     return res.status(405).json({ error: 'Method not allowed' });
   }
 
-  const { answers, company } = req.body;
+  try {
+    const { answers, company } = req.body;
 
-  const prompt = `Tu es une consultante experte en automatisation de process pour PME françaises. Ton nom est Charlotte, fondatrice de Risolvd.
+    if (!answers || answers.length < 5) {
+      return res.status(400).json({ error: 'Missing answers' });
+    }
+
+    const prompt = `Tu es une consultante experte en automatisation de process pour PME françaises. Ton nom est Charlotte, fondatrice de Risolvd.
 Voici les réponses d'un prospect :
 - Secteur : ${answers[0]}
 - Taille équipe : ${answers[1]}
@@ -22,7 +27,6 @@ Ensuite 3 paragraphes courts :
 
 Ton : direct, expert, sans jargon, sans bullshit. Pas de bullet points. Prose uniquement. 200 mots maximum.`;
 
-  try {
     // Appel Claude
     const claudeResponse = await fetch('https://api.anthropic.com/v1/messages', {
       method: 'POST',
@@ -38,6 +42,12 @@ Ton : direct, expert, sans jargon, sans bullshit. Pas de bullet points. Prose un
       })
     });
 
+    if (!claudeResponse.ok) {
+      const err = await claudeResponse.text();
+      console.error('Claude error:', err);
+      return res.status(500).json({ error: 'Claude API error', detail: err });
+    }
+
     const claudeData = await claudeResponse.json();
     const text = claudeData.content.map(b => b.text || '').join('');
     const lines = text.trim().split('\n');
@@ -45,7 +55,7 @@ Ton : direct, expert, sans jargon, sans bullshit. Pas de bullet points. Prose un
     const body = lines.slice(1).join('\n').trim();
 
     // Envoi email via Resend
-    await fetch('https://api.resend.com/emails', {
+    const emailResponse = await fetch('https://api.resend.com/emails', {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',
@@ -68,15 +78,22 @@ Ton : direct, expert, sans jargon, sans bullshit. Pas de bullet points. Prose un
             <li><strong>Objectif :</strong> ${answers[4]}</li>
           </ul>
           <hr/>
-          <h3>Rapport généré par Claude</h3>
+          <h3>Rapport généré</h3>
           <h4>${title}</h4>
           <p>${body.replace(/\n/g, '<br/>')}</p>
         `
       })
     });
 
+    if (!emailResponse.ok) {
+      const emailErr = await emailResponse.text();
+      console.error('Resend error:', emailErr);
+    }
+
     res.status(200).json({ title, body });
+
   } catch (error) {
-    res.status(500).json({ error: 'Erreur serveur' });
+    console.error('Handler error:', error);
+    res.status(500).json({ error: error.message });
   }
 }
