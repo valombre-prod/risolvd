@@ -20,14 +20,22 @@ Voici les réponses d'un prospect :
 ${company ? `- Entreprise : ${company}` : ''}
 
 Génère un mini-rapport d'audit personnalisé en français. Commence par un titre percutant en majuscules (5 mots max, pas de ponctuation).
+
 Ensuite 3 paragraphes courts :
-1. Ce que tu observes dans leur situation spécifique — concret, sectoriel, pas générique
-2. Les 2-3 automatisations les plus impactantes pour eux avec des exemples très concrets tirés de leur secteur
-3. Le temps estimé gagné par semaine et une seule action concrète : "Listez les 3 [tâches spécifiques à leur secteur] que vous refaites chaque semaine. Réservez un appel — c'est par là qu'on commence."
 
-Ton : direct, expert, sans jargon, sans bullshit. Pas de bullet points. Prose uniquement. 200 mots maximum.`;
+1. Ce que tu observes dans leur situation — concret et sectoriel, mais formulé comme un constat, pas une certitude. Tu décris le pattern que tu vois souvent dans ce type d'entreprise, sans affirmer que c'est forcément leur cas.
 
-    // Appel Claude
+2. Les 2-3 pistes d'automatisation les plus courantes dans leur secteur — présentées comme des questions ou des hypothèses ("souvent on trouve...", "ça vaut la peine de regarder si..."), pas comme des solutions définitives. L'idée c'est de donner envie d'en parler, pas de tout résoudre à l'avance.
+
+3. Le temps potentiellement récupérable (fourchette large) et une seule action concrète : "Notez les 3 tâches que vous répétez le plus chaque semaine. Réservez un appel — c'est par là qu'on commence."
+
+Règles absolues :
+- Zéro argot (pas de "bouffe", "galère", "truc", "machin")
+- Ton professionnel mais humain — pas corporate, pas commercial
+- Ne pas proposer de solutions que le prospect a peut-être déjà
+- Pas de bullet points, prose uniquement
+- 200 mots maximum`;
+
     const claudeResponse = await fetch('https://api.anthropic.com/v1/messages', {
       method: 'POST',
       headers: {
