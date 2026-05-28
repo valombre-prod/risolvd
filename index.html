@@ -144,12 +144,12 @@
     <span class="line2">ont mieux à faire.</span>
   </h1>
   <div class="hero-line"></div>
-  <p class="hero-sub">Vos tâches répétitives coûtent du temps, de l'argent et de la motivation. <strong>Je les automatise en deux semaines.</strong> Sans jargon. Sans délai. Sans dépendance.</p>
+  <p class="hero-sub">Vos tâches répétitives coûtent du temps, de l'argent et de la motivation. <strong>Première automatisation prête en 2 semaines.</strong> Sans jargon. Vous gardez la main.</p>
   <a href="#audit" class="btn-main">Faire mon audit gratuit →</a>
 </section>
 
 <div class="stats">
-  <div class="stat"><div class="stat-num">2<span> semaines</span></div><div class="stat-label">Délai de livraison</div></div>
+  <div class="stat"><div class="stat-num">2<span> sem.</span></div><div class="stat-label">Première livraison</div></div>
   <div class="stat"><div class="stat-num">10<span> ans</span></div><div class="stat-label">D'expérience terrain</div></div>
   <div class="stat"><div class="stat-num">0<span> jargon</span></div><div class="stat-label">Garanti</div></div>
 </div>
@@ -194,6 +194,9 @@
   <div class="section-tag">// Gratuit — 5 minutes</div>
   <div class="audit-title">Votre audit process</div>
   <div class="audit-sub">5 questions. Un rapport personnalisé. Zéro engagement.</div>
+  <div style="margin-bottom:2rem">
+    <input type="text" id="company-input" placeholder="Nom de votre entreprise (optionnel)" style="width:100%;padding:1.1rem 1.5rem;border:1px solid rgba(255,255,255,0.15);background:transparent;color:#f5f3ef;font-family:Syne,sans-serif;font-size:1rem;outline:none;" />
+  </div>
   <div class="progress" id="progress">
     <div class="pdot active" id="dot-0"></div>
     <div class="pdot" id="dot-1"></div>
@@ -299,7 +302,7 @@
     document.getElementById('progress').style.display='none';
     document.getElementById('result-block').classList.add('visible');
     try{
-      const resp=await fetch('/api/audit',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({answers})});
+      const resp=await fetch('/api/audit',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({answers, company: document.getElementById('company-input').value})});
       const data=await resp.json();
       document.getElementById('loading').style.display='none';
       document.getElementById('result-title').textContent=data.title;
