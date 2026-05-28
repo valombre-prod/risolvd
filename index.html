@@ -4,25 +4,16 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta name="description" content="Risolvd — Automatisation de process pour PME. Vos tâches répétitives automatisées en deux semaines. Sans jargon. Sans délai.">
-  <meta property="og:title" content="Risolvd. — Vos équipes ont mieux à faire.">
-  <meta property="og:description" content="J'automatise vos process manuels en deux semaines. Audit gratuit en 5 minutes.">
-  <meta property="og:url" content="https://risolvd.com">
   <title>Risolvd. — Automatisation de process pour PME</title>
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Crect width='100' height='100' fill='%230a0a0a'/%3E%3Ctext y='.9em' font-size='80' font-family='serif' font-weight='700' font-style='italic' fill='%23d45a1e' x='8'%3ER.%3C/text%3E%3C/svg%3E">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;500;600;700;800&family=Syne+Mono&family=Playfair+Display:ital,wght@0,400;0,700;1,400;1,700&display=swap" rel="stylesheet">
   <style>
     *{box-sizing:border-box;margin:0;padding:0}
-    :root{
-      --ink:#0a0a0a;
-      --white:#f5f3ef;
-      --accent:#d45a1e;
-      --gray:#888;
-    }
+    :root{--ink:#0a0a0a;--white:#f5f3ef;--accent:#d45a1e}
     html{scroll-behavior:smooth}
     body{font-family:'Syne',sans-serif;background:var(--ink);color:var(--white);min-height:100vh}
-
-    /* NAV */
     nav{display:flex;justify-content:space-between;align-items:center;padding:2rem 3rem;border-bottom:1px solid rgba(255,255,255,0.08);position:sticky;top:0;background:var(--ink);z-index:100}
     .logo{font-size:1.1rem;font-weight:700;letter-spacing:0.1em;text-transform:uppercase;text-decoration:none;color:var(--white)}
     .logo span{color:var(--accent)}
@@ -31,97 +22,78 @@
     .nav-link:hover{color:var(--white)}
     .nav-cta{color:var(--accent) !important;font-weight:700}
     .nav-cta:hover{color:var(--white) !important}
-
-    /* HERO */
     .hero{padding:8rem 3rem 6rem;max-width:1000px;margin:0 auto}
-    .hero-counter{font-family:'Syne Mono',monospace;font-size:0.75rem;color:var(--accent);letter-spacing:0.15em;margin-bottom:3rem;opacity:0.8}
+    .hero-counter{font-family:'Syne Mono',monospace;font-size:1rem;color:var(--accent);letter-spacing:0.15em;margin-bottom:3rem;font-weight:700}
     h1{line-height:0.95;margin-bottom:0.3rem}
-    .line1{font-family:"Playfair Display",serif;font-size:clamp(3rem,7vw,6rem);font-weight:400;font-style:italic;color:var(--white);display:block;letter-spacing:-0.02em}
-    .line2{font-family:"Playfair Display",serif;font-size:clamp(2.5rem,6vw,5.2rem);font-weight:700;font-style:italic;color:var(--accent);display:block;margin-top:0.1em;letter-spacing:-0.02em}
+    .line1{font-family:'Playfair Display',serif;font-size:clamp(3rem,7vw,6rem);font-weight:400;font-style:italic;color:var(--white);display:block;letter-spacing:-0.02em}
+    .line2{font-family:'Playfair Display',serif;font-size:clamp(2.5rem,6vw,5.2rem);font-weight:700;font-style:italic;color:var(--accent);display:block;margin-top:0.1em;letter-spacing:-0.02em}
     .hero-line{width:60px;height:2px;background:var(--accent);margin:2.5rem 0}
-    .hero-sub{font-size:1.05rem;color:rgba(255,255,255,0.6);max-width:480px;line-height:1.7;font-weight:400;margin-bottom:3.5rem}
+    .hero-sub{font-size:1.15rem;color:rgba(255,255,255,0.65);max-width:480px;line-height:1.7;font-weight:400;margin-bottom:3.5rem}
     .hero-sub strong{color:var(--white);font-weight:600}
     .btn-main{display:inline-flex;align-items:center;gap:0.75rem;background:var(--accent);color:var(--white);padding:1.1rem 2.5rem;font-size:0.85rem;font-weight:700;letter-spacing:0.1em;text-transform:uppercase;text-decoration:none;border:none;cursor:pointer;font-family:'Syne',sans-serif;transition:all 0.2s}
     .btn-main:hover{background:var(--white);color:var(--ink)}
-
-    /* STATS */
-    .stats{display:flex;gap:0;border-top:1px solid rgba(255,255,255,0.08);border-bottom:1px solid rgba(255,255,255,0.08)}
+    .stats{display:flex;border-top:1px solid rgba(255,255,255,0.08);border-bottom:1px solid rgba(255,255,255,0.08)}
     .stat{flex:1;padding:2.5rem 3rem;border-right:1px solid rgba(255,255,255,0.08)}
     .stat:last-child{border-right:none}
-    .stat-num{font-family:"Playfair Display",serif;font-size:2.8rem;font-weight:700;font-style:italic;color:var(--white);line-height:1}
-    .stat-num span{color:var(--accent)}
+    .stat-num{font-family:'Playfair Display',serif;font-size:2.8rem;font-weight:700;font-style:italic;color:var(--white);line-height:1}
+    .stat-num span{color:var(--accent);font-style:normal;font-family:'Syne',sans-serif;font-size:1rem;font-weight:700;letter-spacing:0.05em}
     .stat-label{font-size:0.78rem;letter-spacing:0.1em;text-transform:uppercase;color:rgba(255,255,255,0.6);margin-top:0.6rem;font-weight:500}
-
-    /* MANIFESTO */
-    .manifesto{padding:6rem 3rem;max-width:800px;margin:0 auto;border-bottom:1px solid rgba(255,255,255,0.08)}
-    .section-tag{font-size:0.72rem;letter-spacing:0.15em;text-transform:uppercase;color:var(--accent);margin-bottom:2rem}
-    blockquote{font-size:clamp(1.4rem,3vw,2rem);font-weight:500;line-height:1.4;letter-spacing:-0.02em;color:var(--white)}
-    blockquote em{color:rgba(255,255,255,0.45);font-style:normal}
-
-    /* PROBLEMS */
+    .manifesto{padding:6rem 3rem;max-width:860px;margin:0 auto;border-bottom:1px solid rgba(255,255,255,0.08)}
+    .section-tag{font-size:0.85rem;letter-spacing:0.15em;text-transform:uppercase;color:var(--accent);margin-bottom:2rem;font-weight:700}
+    .section-tag-muted{font-size:0.85rem;letter-spacing:0.15em;text-transform:uppercase;color:rgba(255,255,255,0.6);margin-bottom:2.5rem;font-weight:700}
+    blockquote{font-family:'Playfair Display',serif;font-size:clamp(1.6rem,3.5vw,2.4rem);font-weight:400;font-style:italic;line-height:1.4;color:var(--white)}
+    blockquote em{color:rgba(255,255,255,0.5);font-style:normal;font-family:'Syne',sans-serif;font-size:0.72em;letter-spacing:0.02em}
     .problems{padding:6rem 3rem;max-width:1000px;margin:0 auto}
-    .section-tag-muted{font-size:0.72rem;letter-spacing:0.15em;text-transform:uppercase;color:rgba(255,255,255,0.4);margin-bottom:3rem}
     .problem-list{display:flex;flex-direction:column;border:1px solid rgba(255,255,255,0.12)}
-    .problem-item{display:flex;align-items:center;justify-content:space-between;padding:1.5rem 2rem;border-bottom:1px solid rgba(255,255,255,0.08);transition:background 0.2s}
+    .problem-item{display:flex;align-items:center;justify-content:space-between;padding:1.75rem 2rem;border-bottom:1px solid rgba(255,255,255,0.08);gap:2rem;transition:background 0.2s}
     .problem-item:last-child{border-bottom:none}
     .problem-item:hover{background:rgba(255,255,255,0.04)}
-    .problem-text{font-size:1rem;font-weight:500;color:var(--white)}
-    .problem-tag{font-size:0.72rem;letter-spacing:0.1em;text-transform:uppercase;background:var(--accent);color:var(--white);padding:0.3rem 0.8rem;font-weight:700;white-space:nowrap}
-
-    /* OFFERS */
+    .problem-text{font-size:1.1rem;font-weight:500;color:var(--white)}
+    .problem-tag{font-size:0.72rem;letter-spacing:0.1em;text-transform:uppercase;background:var(--accent);color:var(--white);padding:0.35rem 0.9rem;font-weight:700;white-space:nowrap}
     .offers{background:rgba(255,255,255,0.03);border-top:1px solid rgba(255,255,255,0.08);border-bottom:1px solid rgba(255,255,255,0.08)}
     .offers-inner{max-width:1000px;margin:0 auto;padding:6rem 3rem}
     .offers-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1px;background:rgba(255,255,255,0.08)}
     .offer{background:#0a0a0a;padding:2.5rem 2rem}
-    .offer-n{font-family:'Syne Mono',monospace;font-size:0.72rem;color:var(--accent);margin-bottom:1.5rem;letter-spacing:0.1em}
-    .offer-title{font-size:1.2rem;font-weight:700;text-transform:uppercase;letter-spacing:0.05em;margin-bottom:1rem;color:var(--white)}
-    .offer-desc{font-size:0.85rem;color:rgba(255,255,255,0.5);line-height:1.7;margin-bottom:2rem}
-    .offer-price{font-size:0.8rem;color:var(--accent);letter-spacing:0.08em;text-transform:uppercase;font-weight:700}
+    .offer-n{font-family:'Syne Mono',monospace;font-size:0.78rem;color:var(--accent);margin-bottom:1.25rem;letter-spacing:0.1em;font-weight:700}
+    .offer-title{font-size:1.4rem;font-weight:700;text-transform:uppercase;letter-spacing:0.03em;margin-bottom:1rem;color:var(--white);line-height:1.2}
+    .offer-desc{font-size:0.95rem;color:rgba(255,255,255,0.65);line-height:1.7;margin-bottom:2rem}
+    .offer-price{font-size:0.85rem;color:var(--accent);letter-spacing:0.08em;text-transform:uppercase;font-weight:700}
     .offer.mid{background:#111;border-left:2px solid var(--accent);border-right:2px solid var(--accent)}
-
-    /* ABOUT */
     .about{padding:6rem 3rem;max-width:1000px;margin:0 auto;display:grid;grid-template-columns:1fr 2fr;gap:6rem;align-items:start;border-bottom:1px solid rgba(255,255,255,0.08)}
-    .about-text{font-size:1.05rem;line-height:1.8;color:rgba(255,255,255,0.65)}
+    .about-text{font-size:1.05rem;line-height:1.8;color:rgba(255,255,255,0.7)}
     .about-text strong{color:var(--white);font-weight:600}
     .about-text p+p{margin-top:1.25rem}
-
-    /* AUDIT */
     .audit-section{padding:6rem 3rem;max-width:760px;margin:0 auto}
-    .audit-title{font-size:clamp(1.8rem,4vw,3rem);font-weight:800;text-transform:uppercase;letter-spacing:-0.03em;margin-bottom:0.5rem;color:var(--white)}
-    .audit-sub{font-size:0.9rem;color:rgba(255,255,255,0.45);margin-bottom:3rem}
-
+    .audit-title{font-family:'Playfair Display',serif;font-size:clamp(2rem,4vw,3.2rem);font-weight:400;font-style:italic;letter-spacing:-0.02em;margin-bottom:0.5rem;color:var(--white)}
+    .audit-sub{font-size:0.95rem;color:rgba(255,255,255,0.5);margin-bottom:3rem}
     .progress{display:flex;gap:0.5rem;margin-bottom:2.5rem;align-items:center}
     .pdot{width:24px;height:2px;background:rgba(255,255,255,0.15);transition:all 0.3s}
     .pdot.active{background:var(--accent);width:40px}
     .pdot.done{background:rgba(255,255,255,0.5)}
-
     .q-block{display:none}
     .q-block.visible{display:block}
-    .q-text{font-size:1.1rem;font-weight:600;margin-bottom:1.5rem;letter-spacing:-0.01em;color:var(--white)}
-    .q-options{display:flex;flex-direction:column;gap:0.5rem}
-    .q-opt{display:flex;align-items:center;gap:1rem;padding:1rem 1.25rem;border:1px solid rgba(255,255,255,0.15);cursor:pointer;font-size:0.9rem;color:rgba(255,255,255,0.6);transition:all 0.15s;font-family:'Syne',sans-serif;background:transparent}
+    .q-text{font-size:1.25rem;font-weight:600;margin-bottom:1.75rem;letter-spacing:-0.01em;color:var(--white);line-height:1.4}
+    .q-options{display:flex;flex-direction:column;gap:0.6rem}
+    .q-opt{display:flex;align-items:center;gap:1rem;padding:1.1rem 1.5rem;border:1px solid rgba(255,255,255,0.15);cursor:pointer;font-size:1rem;color:rgba(255,255,255,0.7);transition:all 0.15s;font-family:'Syne',sans-serif;background:transparent}
     .q-opt:hover{border-color:var(--white);color:var(--white)}
     .q-opt.selected{border-color:var(--accent);color:var(--white);background:rgba(212,90,30,0.1)}
-    .q-num{font-family:'Syne Mono',monospace;font-size:0.7rem;color:var(--accent);min-width:20px}
-
+    .q-num{font-family:'Syne Mono',monospace;font-size:0.78rem;color:var(--accent);min-width:20px;font-weight:700}
     .q-nav{display:flex;justify-content:space-between;align-items:center;margin-top:2rem}
-    .btn-next{background:var(--accent);color:var(--white);border:none;padding:0.85rem 2rem;font-size:0.78rem;font-weight:700;letter-spacing:0.12em;text-transform:uppercase;cursor:pointer;font-family:'Syne',sans-serif;transition:all 0.2s}
+    .btn-next{background:var(--accent);color:var(--white);border:none;padding:0.9rem 2.25rem;font-size:0.82rem;font-weight:700;letter-spacing:0.12em;text-transform:uppercase;cursor:pointer;font-family:'Syne',sans-serif;transition:all 0.2s}
     .btn-next:hover:not(:disabled){background:var(--white);color:var(--ink)}
     .btn-next:disabled{opacity:0.2;cursor:default}
-    .btn-prev{background:none;border:none;color:rgba(255,255,255,0.35);font-size:0.78rem;cursor:pointer;font-family:'Syne',sans-serif;letter-spacing:0.08em;text-transform:uppercase;padding:0}
+    .btn-prev{background:none;border:none;color:rgba(255,255,255,0.4);font-size:0.82rem;cursor:pointer;font-family:'Syne',sans-serif;letter-spacing:0.08em;text-transform:uppercase;padding:0}
     .btn-prev:hover{color:var(--white)}
-
     .result-block{display:none}
     .result-block.visible{display:block}
-    .result-tag-done{font-family:'Syne Mono',monospace;font-size:0.72rem;color:var(--accent);letter-spacing:0.1em;margin-bottom:1.5rem}
-    .result-title{font-size:1.6rem;font-weight:700;letter-spacing:-0.02em;margin-bottom:1.5rem;text-transform:uppercase;line-height:1.1;color:var(--white)}
-    .result-content{font-size:0.95rem;color:rgba(255,255,255,0.65);line-height:1.8;white-space:pre-line;margin-bottom:2.5rem}
+    .result-tag-done{font-family:'Syne Mono',monospace;font-size:0.78rem;color:var(--accent);letter-spacing:0.1em;margin-bottom:1.5rem;font-weight:700}
+    .result-title{font-family:'Playfair Display',serif;font-size:1.8rem;font-weight:700;font-style:italic;letter-spacing:-0.02em;margin-bottom:1.5rem;line-height:1.1;color:var(--white)}
+    .result-content{font-size:1rem;color:rgba(255,255,255,0.7);line-height:1.8;white-space:pre-line;margin-bottom:2.5rem}
     .result-actions{display:flex;align-items:center;gap:1.5rem;flex-wrap:wrap}
-    .result-cta{display:inline-flex;align-items:center;gap:0.75rem;background:var(--accent);color:var(--white);padding:1rem 2rem;font-size:0.78rem;font-weight:700;letter-spacing:0.12em;text-transform:uppercase;border:none;cursor:pointer;font-family:'Syne',sans-serif;transition:all 0.2s;text-decoration:none}
+    .result-cta{display:inline-flex;align-items:center;gap:0.75rem;background:var(--accent);color:var(--white);padding:1rem 2rem;font-size:0.82rem;font-weight:700;letter-spacing:0.12em;text-transform:uppercase;border:none;cursor:pointer;font-family:'Syne',sans-serif;transition:all 0.2s;text-decoration:none}
     .result-cta:hover{background:var(--white);color:var(--ink)}
-    .result-reset{background:none;border:none;color:rgba(255,255,255,0.35);font-size:0.78rem;cursor:pointer;font-family:'Syne',sans-serif;letter-spacing:0.08em;text-transform:uppercase;text-decoration:none}
+    .result-reset{background:none;border:none;color:rgba(255,255,255,0.35);font-size:0.82rem;cursor:pointer;font-family:'Syne',sans-serif;letter-spacing:0.08em;text-transform:uppercase}
     .result-reset:hover{color:var(--white)}
-
     .loading-state{padding:3rem 0}
     .loading-bars{display:flex;gap:4px;margin-bottom:1.5rem}
     .lbar{width:3px;height:20px;background:var(--accent);animation:bar 1s ease-in-out infinite}
@@ -130,9 +102,7 @@
     .lbar:nth-child(4){animation-delay:0.3s;height:32px}
     .lbar:nth-child(5){animation-delay:0.4s;height:20px}
     @keyframes bar{0%,100%{opacity:0.2}50%{opacity:1}}
-    .loading-text{font-size:0.78rem;letter-spacing:0.1em;text-transform:uppercase;color:rgba(255,255,255,0.35)}
-
-    /* FOOTER */
+    .loading-text{font-size:0.82rem;letter-spacing:0.1em;text-transform:uppercase;color:rgba(255,255,255,0.35)}
     footer{padding:3rem;border-top:1px solid rgba(255,255,255,0.08);display:flex;justify-content:space-between;align-items:center;max-width:1000px;margin:0 auto}
     .footer-logo{font-size:0.9rem;font-weight:700;letter-spacing:0.1em;text-transform:uppercase;color:var(--white);text-decoration:none}
     .footer-logo span{color:var(--accent)}
@@ -140,8 +110,6 @@
     .footer-info{font-size:0.75rem;color:rgba(255,255,255,0.3);letter-spacing:0.06em;text-transform:uppercase}
     .footer-email{font-size:0.78rem;color:rgba(255,255,255,0.5);text-decoration:none;transition:color 0.2s}
     .footer-email:hover{color:var(--accent)}
-
-    /* RESPONSIVE */
     @media(max-width:768px){
       nav{padding:1.5rem}
       .nav-links{gap:1.5rem}
@@ -149,12 +117,9 @@
       .hero{padding:4rem 1.5rem 3rem}
       .stats{flex-direction:column}
       .stat{border-right:none;border-bottom:1px solid rgba(255,255,255,0.08);padding:1.5rem}
-      .manifesto{padding:3rem 1.5rem}
-      .problems{padding:3rem 1.5rem}
-      .offers-inner{padding:3rem 1.5rem}
+      .manifesto,.problems,.offers-inner,.about,.audit-section{padding:3rem 1.5rem}
       .offers-grid{grid-template-columns:1fr}
-      .about{padding:3rem 1.5rem;grid-template-columns:1fr;gap:2rem}
-      .audit-section{padding:3rem 1.5rem}
+      .about{grid-template-columns:1fr;gap:2rem}
       footer{padding:2rem 1.5rem;flex-direction:column;gap:1rem;text-align:center}
       .footer-right{align-items:center}
     }
@@ -168,8 +133,7 @@
     <a href="#problems" class="nav-link">Problèmes</a>
     <a href="#offers" class="nav-link">Offres</a>
     <a href="#about" class="nav-link">À propos</a>
-    
-    <a href="mailto:contact@risolvd.fr" class="nav-link nav-cta">Prendre un appel →</a>
+    <a href="https://calendly.com/risolvd/30min" target="_blank" class="nav-link nav-cta">Réserver un appel →</a>
   </div>
 </nav>
 
@@ -185,18 +149,9 @@
 </section>
 
 <div class="stats">
-  <div class="stat">
-    <div class="stat-num">2<span> sem.</span></div>
-    <div class="stat-label">Délai de livraison</div>
-  </div>
-  <div class="stat">
-    <div class="stat-num">10<span> ans</span></div>
-    <div class="stat-label">D'expérience terrain</div>
-  </div>
-  <div class="stat">
-    <div class="stat-num">0<span> jargon</span></div>
-    <div class="stat-label">Garanti</div>
-  </div>
+  <div class="stat"><div class="stat-num">2<span> semaines</span></div><div class="stat-label">Délai de livraison</div></div>
+  <div class="stat"><div class="stat-num">10<span> ans</span></div><div class="stat-label">D'expérience terrain</div></div>
+  <div class="stat"><div class="stat-num">0<span> jargon</span></div><div class="stat-label">Garanti</div></div>
 </div>
 
 <section class="manifesto">
@@ -219,30 +174,15 @@
   <div class="offers-inner">
     <div class="section-tag-muted">// Les offres</div>
     <div class="offers-grid">
-      <div class="offer">
-        <div class="offer-n">01 / Quick Win</div>
-        <div class="offer-title">On règle un problème</div>
-        <div class="offer-desc">Un process identifié, automatisé, livré. Clé en main en deux semaines.</div>
-        <div class="offer-price">À partir de 1 500 €</div>
-      </div>
-      <div class="offer mid">
-        <div class="offer-n">02 / Autonomie</div>
-        <div class="offer-title">On vous rend indépendants</div>
-        <div class="offer-desc">Je construis l'automatisation et je forme votre équipe à la maintenir sans moi.</div>
-        <div class="offer-price">À partir de 3 500 €</div>
-      </div>
-      <div class="offer">
-        <div class="offer-n">03 / Transformation</div>
-        <div class="offer-title">On restructure tout</div>
-        <div class="offer-desc">Cartographie, priorisation, déploiement, formation. Pour ceux qui veulent aller loin.</div>
-        <div class="offer-price">Sur devis</div>
-      </div>
+      <div class="offer"><div class="offer-n">01 / Quick Win</div><div class="offer-title">On règle un problème</div><div class="offer-desc">Un process identifié, automatisé, livré. Clé en main en deux semaines.</div><div class="offer-price">À partir de 1 500 €</div></div>
+      <div class="offer mid"><div class="offer-n">02 / Autonomie</div><div class="offer-title">On vous rend indépendants</div><div class="offer-desc">Je construis l'automatisation et je forme votre équipe à la maintenir sans moi.</div><div class="offer-price">À partir de 3 500 €</div></div>
+      <div class="offer"><div class="offer-n">03 / Transformation</div><div class="offer-title">On restructure tout</div><div class="offer-desc">Cartographie, priorisation, déploiement, formation. Pour ceux qui veulent aller loin.</div><div class="offer-price">Sur devis</div></div>
     </div>
   </div>
 </section>
 
 <section class="about" id="about">
-  <div class="section-tag-muted">// Charlotte</div>
+  <div class="section-tag-muted">// À propos de moi, Charlotte</div>
   <div class="about-text">
     <p>J'ai passé 10 ans en entreprise — support client, migration d'outils, création de pôles opérationnels, automatisation tous secteurs. Startup, PME, grand groupe.</p>
     <p>Partout le même constat : <strong>des équipes compétentes mobilisées sur des tâches que la technologie peut absorber.</strong></p>
@@ -254,7 +194,6 @@
   <div class="section-tag">// Gratuit — 5 minutes</div>
   <div class="audit-title">Votre audit process</div>
   <div class="audit-sub">5 questions. Un rapport personnalisé. Zéro engagement.</div>
-
   <div class="progress" id="progress">
     <div class="pdot active" id="dot-0"></div>
     <div class="pdot" id="dot-1"></div>
@@ -262,7 +201,6 @@
     <div class="pdot" id="dot-3"></div>
     <div class="pdot" id="dot-4"></div>
   </div>
-
   <div id="qwrap">
     <div class="q-block visible" data-q="0">
       <div class="q-text">Dans quel secteur travaille votre entreprise ?</div>
@@ -317,7 +255,6 @@
       <div class="q-nav"><button class="btn-prev">← Retour</button><button class="btn-next" disabled>Obtenir mon audit →</button></div>
     </div>
   </div>
-
   <div class="result-block" id="result-block">
     <div class="loading-state" id="loading">
       <div class="loading-bars"><div class="lbar"></div><div class="lbar"></div><div class="lbar"></div><div class="lbar"></div><div class="lbar"></div></div>
@@ -328,8 +265,7 @@
       <div class="result-title" id="result-title"></div>
       <div class="result-content" id="result-text"></div>
       <div class="result-actions">
-        
-        <a href="https://calendly.com/risolvd/30min" target="_blank" class="result-cta">Prendre un appel →</a>
+        <a href="https://calendly.com/risolvd/30min" target="_blank" class="result-cta">Réserver un appel →</a>
         <button class="result-reset" id="reset-btn">Recommencer</button>
       </div>
     </div>
@@ -348,90 +284,34 @@
   const answers={};
   let current=0;
   const total=5;
-
-  function updateDots(s){
-    for(let i=0;i<total;i++){
-      const d=document.getElementById('dot-'+i);
-      if(i<s){d.classList.add('done');d.classList.remove('active')}
-      else if(i===s){d.classList.add('active');d.classList.remove('done')}
-      else{d.classList.remove('active','done')}
-    }
-  }
-
+  function updateDots(s){for(let i=0;i<total;i++){const d=document.getElementById('dot-'+i);if(i<s){d.classList.add('done');d.classList.remove('active')}else if(i===s){d.classList.add('active');d.classList.remove('done')}else{d.classList.remove('active','done')}}}
   document.querySelectorAll('.q-block').forEach(block=>{
     const q=parseInt(block.dataset.q);
     const opts=block.querySelectorAll('.q-opt');
     const nextBtn=block.querySelector('.btn-next');
     const prevBtn=block.querySelector('.btn-prev');
-    opts.forEach(opt=>{
-      opt.addEventListener('click',()=>{
-        opts.forEach(o=>o.classList.remove('selected'));
-        opt.classList.add('selected');
-        answers[q]=opt.dataset.val;
-        nextBtn.disabled=false;
-      });
-    });
-    if(nextBtn)nextBtn.addEventListener('click',()=>{
-      if(nextBtn.disabled)return;
-      if(q<total-1){
-        block.classList.remove('visible');
-        document.querySelector('[data-q="'+(q+1)+'"]').classList.add('visible');
-        current=q+1;updateDots(current);
-      }else{showResult();}
-    });
-    if(prevBtn)prevBtn.addEventListener('click',()=>{
-      if(q>0){
-        block.classList.remove('visible');
-        document.querySelector('[data-q="'+(q-1)+'"]').classList.add('visible');
-        current=q-1;updateDots(current);
-      }
-    });
+    opts.forEach(opt=>{opt.addEventListener('click',()=>{opts.forEach(o=>o.classList.remove('selected'));opt.classList.add('selected');answers[q]=opt.dataset.val;nextBtn.disabled=false;});});
+    if(nextBtn)nextBtn.addEventListener('click',()=>{if(nextBtn.disabled)return;if(q<total-1){block.classList.remove('visible');document.querySelector('[data-q="'+(q+1)+'"]').classList.add('visible');current=q+1;updateDots(current);}else{showResult();}});
+    if(prevBtn)prevBtn.addEventListener('click',()=>{if(q>0){block.classList.remove('visible');document.querySelector('[data-q="'+(q-1)+'"]').classList.add('visible');current=q-1;updateDots(current);}});
   });
-
   async function showResult(){
     document.getElementById('qwrap').style.display='none';
     document.getElementById('progress').style.display='none';
     document.getElementById('result-block').classList.add('visible');
-
-    const prompt=`Tu es une consultante experte en automatisation de process pour PME françaises. Ton nom est Charlotte, fondatrice de Risolvd.
-Voici les réponses d'un prospect :
-- Secteur : ${answers[0]}
-- Taille équipe : ${answers[1]}
-- Tâche la plus chronophage : ${answers[2]}
-- Outils utilisés : ${answers[3]}
-- Objectif : ${answers[4]}
-
-Génère un mini-rapport d'audit personnalisé en français. Commence par un titre percutant en majuscules (5 mots max, pas de ponctuation).
-Ensuite 3 paragraphes courts :
-1. Ce que tu observes dans leur situation spécifique — concret, sectoriel, pas générique
-2. Les 2-3 automatisations les plus impactantes pour eux avec des exemples très concrets tirés de leur secteur
-3. Le temps estimé gagné par semaine et une seule action concrète : "Listez les 3 [tâches spécifiques à leur secteur] que vous refaites chaque semaine. Réservez un appel — c'est par là qu'on commence."
-
-Ton : direct, expert, sans jargon, sans bullshit. Pas de bullet points. Prose uniquement. 200 mots maximum.`;
-
     try{
-      const resp=await fetch('https://api.anthropic.com/v1/messages',{
-        method:'POST',
-        headers:{'Content-Type':'application/json','anthropic-dangerous-direct-browser-access':'true'},
-        body:JSON.stringify({model:'claude-sonnet-4-20250514',max_tokens:1000,messages:[{role:'user',content:prompt}]})
-      });
+      const resp=await fetch('/api/audit',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({answers})});
       const data=await resp.json();
-      const text=data.content.map(b=>b.text||'').join('');
-      const lines=text.trim().split('\n');
-      const title=lines[0].replace(/^#+\s*/,'');
-      const body=lines.slice(1).join('\n').trim();
       document.getElementById('loading').style.display='none';
-      document.getElementById('result-title').textContent=title;
-      document.getElementById('result-text').textContent=body;
+      document.getElementById('result-title').textContent=data.title;
+      document.getElementById('result-text').textContent=data.body;
       document.getElementById('result-content').style.display='block';
     }catch(e){
       document.getElementById('loading').style.display='none';
       document.getElementById('result-title').textContent='VOTRE POTENTIEL EST RÉEL';
-      document.getElementById('result-text').textContent='Sur la base de vos réponses, votre entreprise a un potentiel d\'automatisation concret. Listez les 3 tâches que vous refaites chaque semaine. Réservez un appel — c\'est par là qu\'on commence.';
+      document.getElementById('result-text').textContent="Sur la base de vos réponses, votre entreprise a un potentiel d'automatisation concret. Listez les 3 tâches que vous refaites chaque semaine. Réservez un appel — c'est par là qu'on commence.";
       document.getElementById('result-content').style.display='block';
     }
   }
-
   document.getElementById('reset-btn').addEventListener('click',()=>{
     document.getElementById('result-block').classList.remove('visible');
     document.getElementById('qwrap').style.display='block';
@@ -446,6 +326,5 @@ Ton : direct, expert, sans jargon, sans bullshit. Pas de bullet points. Prose un
     document.querySelector('[data-q="0"]').classList.add('visible');
   });
 </script>
-
 </body>
 </html>
